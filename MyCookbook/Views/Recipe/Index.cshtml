@@ -1,0 +1,87 @@
+﻿@model IEnumerable<MyCookbook.Recipe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<asp:Content ID="headerContent" ContentPlaceHolderID="headerPlaceHolder" runat="server">
+    <script type="text/javascript" src="../../Scripts/jquery.autocomplete.js"></script>
+    <link href="../../Content/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+      $("#searchTerm").autocomplete("/Recipe/getAjaxResult/");
+    });
+
+    </script>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <h2>Look for a Recipe</h2>
+
+    <form action="/Recipe/Search" method="post" id="searchForm">
+        <input type="text" name="searchTerm" id="searchTerm" value="" size="10" maxlength="30" />
+        <input type="submit" value="Search" />
+    </form>
+    <br />
+
+</asp:Content>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Servings)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CookTime)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.RecipeIngredientId)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Servings)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrepTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CookTime)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.RecipeIngredientId)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecipeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecipeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecipeId })
+        </td>
+    </tr>
+}
+
+</table>

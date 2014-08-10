@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyCookbookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="IngredientId" />
+    </Key>
+    <Property Name="IngredientId" Type="int" Nullable="false" />
+    <Property Name="IngredientName" Type="varchar" MaxLength="50" />
+    <Property Name="IngredientType" Type="varchar" MaxLength="50" />
+    <Property Name="RecipeIngredientId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+    </Key>
+    <Property Name="RecipeId" Type="int" Nullable="false" />
+    <Property Name="RecipeName" Type="varchar" MaxLength="50" />
+    <Property Name="RecipeType" Type="varchar" MaxLength="50" />
+    <Property Name="Sevings" Type="varchar" MaxLength="50" />
+    <Property Name="PrepTime" Type="varchar" MaxLength="50" />
+    <Property Name="CookTime" Type="varchar" MaxLength="50" />
+    <Property Name="RecipeIngredientId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecipeIngredient">
+    <Key>
+      <PropertyRef Name="RecipeIngredientId" />
+    </Key>
+    <Property Name="IngredientId" Type="int" Nullable="false" />
+    <Property Name="RecipeId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="50" />
+    <Property Name="RecipeIngredientId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_RecipeIngredient_Ingredient">
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+    <End Role="RecipeIngredient" Type="Self.RecipeIngredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredient">
+        <PropertyRef Name="IngredientId" />
+      </Principal>
+      <Dependent Role="RecipeIngredient">
+        <PropertyRef Name="IngredientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecipeIngredient_Recipe">
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="1" />
+    <End Role="RecipeIngredient" Type="Self.RecipeIngredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="RecipeId" />
+      </Principal>
+      <Dependent Role="RecipeIngredient">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyCookbookModelStoreContainer">
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RecipeIngredient" EntityType="Self.RecipeIngredient" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_RecipeIngredient_Ingredient" Association="Self.FK_RecipeIngredient_Ingredient">
+      <End Role="Ingredient" EntitySet="Ingredient" />
+      <End Role="RecipeIngredient" EntitySet="RecipeIngredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecipeIngredient_Recipe" Association="Self.FK_RecipeIngredient_Recipe">
+      <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="RecipeIngredient" EntitySet="RecipeIngredient" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

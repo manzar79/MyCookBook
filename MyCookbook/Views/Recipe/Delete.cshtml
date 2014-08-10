@@ -1,0 +1,72 @@
+﻿@model MyCookbook.Recipe
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Recipe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipeType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Servings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrepTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CookTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CookTime)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.RecipeIngredientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipeIngredientId)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
