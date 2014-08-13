@@ -52,4 +52,6 @@ C:\Users\Grand\Documents\GitHub\MyCookbook\MyCookbook\bin\Microsoft.Owin.Securit
 C:\Users\Grand\Documents\GitHub\MyCookbook\MyCookbook\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Grand\Documents\GitHub\MyCookbook\MyCookbook\obj\Debug\MyCookbook.dll
 C:\Users\Grand\Documents\GitHub\MyCookbook\MyCookbook\obj\Debug\MyCookbook.pdb
+C:\Users\Grand\Documents\GitHub\MyCookbook\MyCookbook\obj\Debug\MyCookbook.Images.Image1.resources
+C:\Users\Grand\Documents\GitHub\MyCookbook\MyCookbook\obj\Debug\MyCookbook.csproj.GenerateResource.Cache
 C:\Users\Grand\Documents\GitHub\MyCookbook\MyCookbook\obj\Debug\MyCookbook.csprojResolveAssemblyReference.cache

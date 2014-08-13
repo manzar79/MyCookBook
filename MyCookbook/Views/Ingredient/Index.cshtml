@@ -13,6 +13,8 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.IngredientName)
+      
+            
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IngredientType)
@@ -27,6 +29,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.IngredientName)
+        
+            <img src="~/Images/@Html.DisplayFor(modelItem => item.image)" alt="Logo">
+          
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IngredientType)

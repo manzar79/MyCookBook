@@ -182,6 +182,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Images\Image1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Image1.resx</DependentUpon>
+    </Compile>
     <Compile Include="Ingredient.cs">
       <DependentUpon>Cookbook.tt</DependentUpon>
     </Compile>
@@ -208,6 +213,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="Resources\breakfast3-578x284.jpg" />
+    <Content Include="Images\ingre2.jpg" />
+    <Content Include="Images\ingredient1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Cookbook.edmx">
@@ -280,7 +288,12 @@
     <Content Include="Views\Ingredient\Edit.cshtml" />
     <Content Include="Views\Ingredient\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Image1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Image1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -290,6 +303,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Image\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

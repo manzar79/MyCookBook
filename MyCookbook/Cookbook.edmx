@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyCookbookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MyCookbookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Ingredient">
           <Key>
             <PropertyRef Name="IngredientId" />
@@ -13,6 +13,9 @@
           <Property Name="IngredientName" Type="varchar" MaxLength="50" />
           <Property Name="IngredientType" Type="varchar" MaxLength="50" />
           <Property Name="RecipeIngredientId" Type="int" Nullable="false" />
+          <Property Name="image2" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="image3" Type="varbinary(max)" />
+          <Property Name="image" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Recipe">
           <Key>
@@ -72,8 +75,7 @@
             <End Role="RecipeIngredient" EntitySet="RecipeIngredient" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyCookbookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -86,6 +88,9 @@
           <Property Name="IngredientType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RecipeIngredientId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="RecipeIngredients" Relationship="Self.FK_RecipeIngredient_Ingredient" FromRole="Ingredient" ToRole="RecipeIngredient" />
+          <Property Name="image2" Type="Guid" Nullable="false" />
+          <Property Name="image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Recipe">
           <Key>
@@ -157,6 +162,9 @@
           <EntitySetMapping Name="Ingredients">
             <EntityTypeMapping TypeName="MyCookbookModel.Ingredient">
               <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="image3" ColumnName="image3" />
+                <ScalarProperty Name="image2" ColumnName="image2" />
                 <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
                 <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
                 <ScalarProperty Name="IngredientType" ColumnName="IngredientType" />

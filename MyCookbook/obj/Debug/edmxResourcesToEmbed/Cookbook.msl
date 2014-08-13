@@ -4,6 +4,9 @@
     <EntitySetMapping Name="Ingredients">
       <EntityTypeMapping TypeName="MyCookbookModel.Ingredient">
         <MappingFragment StoreEntitySet="Ingredient">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="image3" ColumnName="image3" />
+          <ScalarProperty Name="image2" ColumnName="image2" />
           <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
           <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
           <ScalarProperty Name="IngredientType" ColumnName="IngredientType" />

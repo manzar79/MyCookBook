@@ -3,9 +3,38 @@
 }
 
 <div class="jumbotron">
-    <body>
+    
     <h1>CookBook</h1>
     <p class="lead"> CookBook is a site where you find the best cooking recipe with ingredeints.</p>
-    
-</div>
+  </div>
+
+<script type='text/javascript'
+        src='http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js'>
+</script>
+<script type="text/javascript">
+    var imgs = [
+    '~/Images/ingre2.jpg',
+    '~/Images/ingredient1.jpg'];
+    var cnt = imgs.length;
+
+    $(function () {
+        setInterval(Slider, 3000);
+    });
+
+    function Slider() {
+        $('#imageSlide').fadeOut("slow", function () {
+            $(this).attr('src', imgs[(imgs.length++) % cnt]).fadeIn("slow");
+        });
+    }
+</script>
+
+<body>
+    <img id="imageSlide" alt="" src="" />
+</body>
+
+
+
+
+
+
 

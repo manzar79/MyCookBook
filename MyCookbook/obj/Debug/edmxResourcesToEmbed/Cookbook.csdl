@@ -9,6 +9,9 @@
     <Property Name="IngredientType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="RecipeIngredientId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="RecipeIngredients" Relationship="Self.FK_RecipeIngredient_Ingredient" FromRole="Ingredient" ToRole="RecipeIngredient" />
+    <Property Name="image2" Type="Guid" Nullable="false" />
+    <Property Name="image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Recipe">
     <Key>

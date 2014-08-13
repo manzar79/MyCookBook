@@ -23,6 +23,9 @@ namespace MyCookbook
         public string IngredientName { get; set; }
         public string IngredientType { get; set; }
         public int RecipeIngredientId { get; set; }
+        public System.Guid image2 { get; set; }
+        public byte[] image3 { get; set; }
+        public string image { get; set; }
     
         public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; }
     }
